@@ -2,6 +2,10 @@ use std::io;
 // Fibonacci Series Number
 // F(n) = 1,1,2,3,5,8,13,....(n-1),((n-1)+n)
 // where, n >= 1
+//  INPUT:|1|-|2|-|3|-|4|-|5|-|6|-|7|  
+// OUTPUT:|1|-|1|-|2|-|3|-|5|-|8|-|13|
+//IN:  |8|  |9| |10| 
+//OUT: |21| |34| |55| 
 
 fn fibo(mut n:u32)->u32{
         let mut current: u32 = 1;
@@ -10,7 +14,7 @@ fn fibo(mut n:u32)->u32{
         if n<=0 {return 0}
         if n == 1 || n == 2 {return 1}
         if n > 2 {
-            while n > 1{
+            while n > 2{
                 let sum:u32 = current + next;
                 current = next;
                 next = sum;
@@ -21,8 +25,6 @@ fn fibo(mut n:u32)->u32{
         else{
             return 1;
         }
-            // else{
-            //     return fibo(n-1)+fibo(n-2);
 }
 
 fn main(){

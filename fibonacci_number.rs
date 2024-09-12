@@ -3,21 +3,26 @@ use std::io;
 // F(n) = 1,1,2,3,5,8,13,....(n-1),((n-1)+n)
 // where, n >= 1
 
-fn fibo(n:u32)->u32{
+fn fibo(mut n:u32)->u32{
+        let mut current: u32 = 1;
+        let mut next: u32 = 1;
+
         if n<=0 {return 0}
         if n == 1 || n == 2 {return 1}
-        // if n > 2 {
-        //     while n >= 1{
-        //         current = next;
-        //         _prev = current;
-        //         sum = _prev + current;
-        //         next = sum;
-        //         n -= 1;
-        //     }
+        if n > 2 {
+            while n > 1{
+                let sum:u32 = current + next;
+                current = next;
+                next = sum;
+                n -= 1;
+            }
+            next
+            }
         else{
-            return fibo(n-1)+fibo(n-2);
+            return 1;
         }
-
+            // else{
+            //     return fibo(n-1)+fibo(n-2);
 }
 
 fn main(){
